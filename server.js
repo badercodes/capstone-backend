@@ -20,7 +20,7 @@ server.get("/", function (req, res) {
 server.use("/product", ProductRoutes);
 server.use("/user", UserRoutes);
 
-// this is for testing that post requests are made successfully.
+// this is for testing that post requests are made successfully..
 // Should be deleted once all routes and testing completed
 server.post("/name", function (req, res) {
   const userDetails = {
