@@ -16,7 +16,21 @@ router.post("/list", function (req, res) {
     description: req.body.description,
     price: req.body.price,
   };
+
   res.send(newEntry);
+});
+
+// this where a user goes to update their product listing
+// logic here needs to change to some sort of lookup and update
+router.post("/update", function (req, res) {
+  const newDocument = {
+    category: req.body.category,
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+  };
+  // placeholder for now
+  res.send(newDocument);
 });
 
 // end of all routes
