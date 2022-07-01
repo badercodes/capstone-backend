@@ -11,6 +11,17 @@ server.use(express.urlencoded({ extended: false }));
 const ProductRoutes = require("./routes/ProductRoutes.js");
 const UserRoutes = require("./routes/UserRoutes.js");
 
+// declaring and configuring mongoose
+const mongoose = require("mongoose");
+const dbURL = ""; //fill in DB URL here
+const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
+
+// connecting to mongoose DB
+mongoose
+  .connect(dbURL, dbConfig)
+  .then(() => console.log("Successfully Connected to DB!"))
+  .catch((err) => console.log(err));
+
 // adding an index / landing page route to server
 server.get("/", function (req, res) {
   res.send("<h1>You have successfully landed on the Dubai Marketplace!</h1>");

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const ProductModel = require("../models/ProductModel");
 
 // all routes need to go here GET/POST
 
@@ -16,8 +17,11 @@ router.post("/list", function (req, res) {
     description: req.body.description,
     price: req.body.price,
   };
-
-  res.send(newEntry);
+  ProductModel.create(newEntry)
+    .then((response) => console.log(response))
+    .then(() => res.send("Data sent to DB!"))
+    .catch((error) => console.log(error));
+  // res.send(newEntry);
 });
 
 // this where a user goes to update their product listing
