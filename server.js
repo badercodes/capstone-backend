@@ -13,8 +13,7 @@ const UserRoutes = require("./routes/UserRoutes.js");
 
 // declaring and configuring mongoose
 const mongoose = require("mongoose");
-const dbURL =
-  "mongodb+srv://admin01:123kdd123@cluster0.f96q4.mongodb.net/astrolabs_backend?retryWrites=true&w=majority";
+const dbURL = "";
 const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // connecting to mongoose DB
