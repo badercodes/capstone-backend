@@ -13,7 +13,8 @@ const UserRoutes = require("./routes/UserRoutes.js");
 
 // declaring and configuring mongoose
 const mongoose = require("mongoose");
-const dbURL = ""; //fill in DB URL here
+const dbURL =
+  "mongodb+srv://admin01:123kdd123@cluster0.f96q4.mongodb.net/?retryWrites=true&w=majority";
 const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // connecting to mongoose DB
