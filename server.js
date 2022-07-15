@@ -2,6 +2,9 @@
 const express = require("express");
 const server = express();
 
+// telling project that we're going to use ENV variables
+require("dotenv").config();
+
 // configuration for body-parser to handle post requests
 // no need to install a seperate package - its built in
 server.use(express.json());
@@ -13,7 +16,8 @@ const UserRoutes = require("./routes/UserRoutes.js");
 
 // declaring and configuring mongoose
 const mongoose = require("mongoose");
-const dbURL = "";
+const dbURL = process.env.DB_URL;
+
 const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // connecting to mongoose DB
@@ -22,6 +26,7 @@ mongoose
   .then(() => console.log("Successfully Connected to DB!"))
   .catch((err) => console.log(err));
 
+// ~ START of Routes Sections ~ //
 // adding an index / landing page route to server
 server.get("/", function (req, res) {
   res.send("<h1>You have successfully landed on the Dubai Marketplace!</h1>");
@@ -42,6 +47,7 @@ server.post("/name", function (req, res) {
     `Welcome to the User page\n Your details are as follow\n name:${userDetails.name} and age: ${userDetails.age}`
   );
 });
+//~ END of Routes Section ~//
 
 // server is listening to requests on port 3000
 server.listen(3000, function () {
