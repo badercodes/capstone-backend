@@ -50,6 +50,6 @@ server.post("/name", function (req, res) {
 //~ END of Routes Section ~//
 
 // server is listening to requests on port 3000
-server.listen(3000, function () {
+server.listen(3000 || process.env.PORT, function () {
   console.log("Server is running and listening on port 3000");
 });
