@@ -4,7 +4,7 @@ const ProductModel = require("../models/ProductModel");
 
 // all routes need to go here GET/POST
 
-// this the browse listing route where all proudct listings will be viewable
+// this the browse listing route where all product listings will be viewable
 router.get("/", function (req, res) {
   res.send("You have landed on Products browse page");
 });
