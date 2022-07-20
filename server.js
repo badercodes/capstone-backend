@@ -51,27 +51,27 @@ server.post("/name", function (req, res) {
 
 // Monkey buisness with CORS
 // Add Access Control Allow Origin headers
-// server.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept",
-//     "Access-Control-Allow-Credentials",
-//     "true"
-//   );
-//   next();
-// });
+server.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept",
+    "Access-Control-Allow-Credentials",
+    "true"
+  );
+  next();
+});
 
 //~ END of Monkey buisness with CORS ~//
 // More CORS monkey buisness
-const cors = require("cors");
-const corsOptions = {
-  origin: "*",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
+// const cors = require("cors");
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// };
 
-server.use(cors(corsOptions)); // Use this after the variable declaration
+// server.use(cors(corsOptions)); // Use this after the variable declaration
 
 // headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
 // headers.append("Access-Control-Allow-Credentials", "true");
