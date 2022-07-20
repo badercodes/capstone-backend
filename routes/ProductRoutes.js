@@ -22,6 +22,7 @@ router.post("/list", function (req, res) {
     .then(() => res.send("Data sent to DB!"))
     .catch((error) => {
       console.log(error);
+      console.log(req.body);
       res.send("There was an error submitting the data");
     });
   // res.send(newEntry);
