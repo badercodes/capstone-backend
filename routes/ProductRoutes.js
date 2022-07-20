@@ -19,7 +19,7 @@ router.post("/list", function (req, res) {
   };
   ProductModel.create(newEntry)
     .then((response) => console.log(response))
-    .then(() => res.send("Data sent to DB!"))
+    .then(() => res.send({ Success: "Data has been sent to server!" }))
     .catch((error) => {
       console.log(error);
       console.log(req.body);
