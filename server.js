@@ -20,6 +20,16 @@ server.use(bodyParser.json());
 // using cors package in an attempt to fix cors issue
 // server.use(cors());
 
+// Add Access Control Allow Origin headers - attempting to fix cors
+server.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 // importing custom routes from routes folder (add all routes here)
 const ProductRoutes = require("./routes/ProductRoutes.js");
 const UserRoutes = require("./routes/UserRoutes.js");
@@ -71,16 +81,6 @@ server.post("/name", function (req, res) {
 // res.setHeader("Content-Type", "application/json");
 // next();
 // });
-
-// Add Access Control Allow Origin headers
-server.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 //~ END of Monkey buisness with CORS ~//
 // More CORS monkey buisness
