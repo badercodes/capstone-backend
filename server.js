@@ -7,8 +7,18 @@ require("dotenv").config();
 
 // configuration for body-parser to handle post requests
 // no need to install a seperate package - its built in
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
+// server.use(express.json());
+// server.use(express.urlencoded({ extended: true }));
+
+// installing body-parser as part of troubleshooting efforts
+// settings from AstoLabs
+const bodyParser = require("body-parser");
+const bodyParserConfig = { extended: false };
+server.use(bodyParser.urlencoded(bodyParserConfig));
+server.use(bodyParser.json());
+
+// using cors package in an attempt to fix cors issue
+server.use(cors());
 
 // importing custom routes from routes folder (add all routes here)
 const ProductRoutes = require("./routes/ProductRoutes.js");
