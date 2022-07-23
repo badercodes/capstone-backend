@@ -52,6 +52,10 @@ server.get("/", function (req, res) {
   res.send("<h1>You have successfully landed on the Dubai Marketplace!</h1>");
 });
 
+server.get("/get", function (req, res) {
+  res.send({ iReturn: "Great Success" });
+});
+
 // using the routes we created from routes folder
 server.use("/product", ProductRoutes);
 server.use("/user", UserRoutes);
