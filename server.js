@@ -8,7 +8,7 @@ require("dotenv").config();
 // configuration for body-parser to handle post requests
 // no need to install a seperate package - its built in
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({ extended: true }));
 
 // importing custom routes from routes folder (add all routes here)
 const ProductRoutes = require("./routes/ProductRoutes.js");
