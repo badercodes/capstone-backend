@@ -18,7 +18,7 @@ server.use(bodyParser.urlencoded(bodyParserConfig));
 server.use(bodyParser.json());
 
 // using cors package in an attempt to fix cors issue
-server.use(cors());
+// server.use(cors());
 
 // importing custom routes from routes folder (add all routes here)
 const ProductRoutes = require("./routes/ProductRoutes.js");
@@ -61,11 +61,16 @@ server.post("/name", function (req, res) {
 
 // Monkey buisness with CORS
 // Add Access Control Allow Origin headers
-// server.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500", "*");
-//   res.setHeader("Content-Type", "application/json");
-//   next();
-// });
+server.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "http://127.0.0.1:5500",
+    "http://localhost:3000",
+    "*"
+  );
+  // res.setHeader("Content-Type", "application/json");
+  next();
+});
 
 //~ END of Monkey buisness with CORS ~//
 // More CORS monkey buisness
@@ -81,7 +86,7 @@ server.use(cors());
 // headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
 // headers.append("Access-Control-Allow-Credentials", "true");
 
-// server is listening to requests on port 3000
-server.listen(process.env.PORT || 3000, function () {
-  console.log("Server is running and listening on port 3000");
+// server is listening to requests on port 3030 because frontend will be on 3000;
+server.listen(process.env.PORT || 3030, function () {
+  console.log("Server is running and listening on port 3030");
 });
